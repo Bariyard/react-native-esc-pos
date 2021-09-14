@@ -50,6 +50,8 @@ public class PrinterService {
     private io.github.escposjava.PrinterService basePrinterService;
     private ReactApplicationContext context;
 
+    public static final byte[] CHARCODE_THAI255 = {0x1b,0x74,0xFF}; // Barcode type NW7
+
     public PrinterService(Printer printer) throws IOException {
         basePrinterService = new io.github.escposjava.PrinterService(printer);
     }
