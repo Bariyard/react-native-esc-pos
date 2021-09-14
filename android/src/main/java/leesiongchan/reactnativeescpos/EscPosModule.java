@@ -215,6 +215,12 @@ public class EscPosModule extends ReactContextBaseJavaModule {
         printerService.setPrintingWidth(printingWidth);
     }
 
+
+    @ReactMethod
+    public void setEncoder(String encoder) {
+        printerService.setEncoder(encoder);
+    }
+
     @ReactMethod
     public void beep(Promise promise) {
         printerService.beep();
