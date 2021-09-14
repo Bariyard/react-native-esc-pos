@@ -68,7 +68,7 @@ public class PrinterService {
 
     public void print(String text) throws UnsupportedEncodingException {
         // TODO: get rid of GBK default!
-        write(text.getBytes("GBK"));
+        write(text.getBytes("UTF8"));
     }
 
     public void printLn(String text) throws UnsupportedEncodingException {
@@ -339,7 +339,7 @@ public class PrinterService {
                 }
                 if (qtToWrite == null && imageToWrite == null && bcToWrite == null) {
                     // TODO: get rid of GBK default!
-                    baos.write(layoutBuilder.createFromDesign(line, charsOnLine).getBytes("GBK"));
+                    baos.write(layoutBuilder.createFromDesign(line, charsOnLine).getBytes("UTF8"));
                 }
             } catch (UnsupportedEncodingException e) {
                 // Do nothing?
