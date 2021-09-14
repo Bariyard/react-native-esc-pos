@@ -46,6 +46,7 @@ public class PrinterService {
     private final int DEFAULT_BAR_CODE_POSITION = 2;
 
     private int printingWidth = PRINTING_WIDTH_58_MM;
+    private String bytesEncoder = "GBK";
     private io.github.escposjava.PrinterService basePrinterService;
     private ReactApplicationContext context;
 
@@ -68,7 +69,7 @@ public class PrinterService {
 
     public void print(String text) throws UnsupportedEncodingException {
         // TODO: get rid of GBK default!
-        write(text.getBytes("UTF8"));
+        write(text.getBytes(bytesEncoder));
     }
 
     public void printLn(String text) throws UnsupportedEncodingException {
@@ -169,6 +170,10 @@ public class PrinterService {
 
     public void setPrintingWidth(int printingWidth) {
         this.printingWidth = printingWidth;
+    }
+
+    public void setEncoder(String encoder){
+        this.bytesEncoder = encoder;
     }
 
     public void setTextDensity(int density) {
@@ -339,7 +344,7 @@ public class PrinterService {
                 }
                 if (qtToWrite == null && imageToWrite == null && bcToWrite == null) {
                     // TODO: get rid of GBK default!
-                    baos.write(layoutBuilder.createFromDesign(line, charsOnLine).getBytes("UTF8"));
+                    baos.write(layoutBuilder.createFromDesign(line, charsOnLine).getBytes(bytesEncoder));
                 }
             } catch (UnsupportedEncodingException e) {
                 // Do nothing?

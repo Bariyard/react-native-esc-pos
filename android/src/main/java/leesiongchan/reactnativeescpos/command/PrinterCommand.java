@@ -26,7 +26,7 @@ public class PrinterCommand {
         byte[] bCodeData = null;
         try {
             // TODO: get rid of GBK default!
-            bCodeData = str.getBytes("UTF8");
+            bCodeData = str.getBytes("GBK");
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
