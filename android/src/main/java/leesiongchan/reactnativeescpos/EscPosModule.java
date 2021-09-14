@@ -224,7 +224,7 @@ public class EscPosModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setCharCodeThai(Promise promise) {
         // xprinter code page thai is at 255
-        printerService.write(CHARCODE_THAI255);
+        printerService.write(PrinterService.CHARCODE_THAI255);
         promise.resolve(true);
     }
 
